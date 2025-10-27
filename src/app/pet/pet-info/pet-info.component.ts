@@ -1,5 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { Pet } from 'src/app/pet';
 import { PetService } from 'src/app/services/pet';
 
@@ -15,31 +16,29 @@ export class PetInfoComponent  implements OnInit {
 
   petId = signal<string | null>(null);
 
-  constructor(private route: ActivatedRoute, private petService: PetService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private petService: PetService, private loaderCtrl: LoadingController) { }
 
   ngOnInit() {
-  this.petId.set(this.route.snapshot.paramMap.get('petId'));
-
-  this.petService.getPetById(this.petId()!).subscribe({
-      next: (pet) => {
-        this.pet.set(pet);
-      },
-      error: (err) => {
-        this.errorMessage.set('Failed to load pet information.');
-        console.error(err);
-      }
+ this.petId.set(this.route.snapshot.paramMap.get('petId'));
+    this.loaderCtrl.create({
+      message: 'Loading pet information...'
+    }).then(loader => {
+      loader.present();
+      this.petService.getPetById(this.petId()!).subscribe({
+        next: (pet) => {
+          this.pet.set(pet);
+          loader.dismiss();
+        },
+        error: (err) => {
+          this.errorMessage.set('Failed to load pet information.');
+          console.error(err);
+          loader.dismiss();
+        }
+      });
     });
-
-    this.petService.getPet().subscribe({
-      next: (pet) => {
-        this.pet.set(pet);
-        console.log(pet);
-      },
-      error: (err) => {
-        this.errorMessage.set('Failed to load pet information.');
-        console.error(err);
-      }
-    });
-
   }
+
+
+
+
 }
