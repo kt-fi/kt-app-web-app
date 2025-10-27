@@ -35,3 +35,63 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+$--font-main-title: "Bitter", sans-serif;
+$--font-main: "Source Sans 3", serif;
+
+:root {
+    --screen-height: 100vh;
+    --screen-width: 100vw;
+    --screen-border: 20px;
+    }
+
+.small-text {
+    font-size: 0.8em !important;
+}
+
+.green-tick {
+    color: #00ff00;
+}
+
+.red-tick {
+    color: #ff0000;
+}
+
+.card {
+    --box-shadow: none;
+    box-shadow: 10px 10px 10px 10px 10px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ion-item.form-input {
+    --background: transparent;
+    background: transparent;
+    
+}
+
+
+ion-toolbar {
+    // --padding-top: 65px;
+    --background: #FFCC00;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+ion-title {
+    color: rgb(49, 49, 49);
+    font-family: Arial, Helvetica, sans-serif;
+}

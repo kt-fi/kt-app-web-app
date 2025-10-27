@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // url: 'https://the-kt-app.onrender.com',
+  petImagesUrl: 'https://res.cloudinary.com/daxrovkug/image/upload/v1746460136/ktApp-petMainPic/',
+  url: 'http://localhost:3001'
 };
 
 /*

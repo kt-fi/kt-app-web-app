@@ -10,4 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'pet/info/:petId',
+    loadComponent: () => import('./pet/pet-info/pet-info.component').then((m) => m.PetInfoComponent),
+  }
 ];
