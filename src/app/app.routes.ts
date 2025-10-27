@@ -6,12 +6,17 @@ export const routes: Routes = [
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
   {
+    path: 'pet/info/:petId',
+    loadComponent: () => import('./pet/pet-info/pet-info.component').then((m) => m.PetInfoComponent),
+  },
+ {
+    path: 'pet/contact',
+    loadComponent: () => import('./pet/contact/contact.component').then((m) => m.ContactComponent),
+  },
+
+    {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  {
-    path: 'pet/info',
-    loadComponent: () => import('./pet/pet-info/pet-info.component').then((m) => m.PetInfoComponent),
-  }
 ];
