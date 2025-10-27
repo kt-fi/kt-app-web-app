@@ -11,7 +11,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'pet/info/:petId',
+    path: 'pet/info',
     loadComponent: () => import('./pet/pet-info/pet-info.component').then((m) => m.PetInfoComponent),
   }
 ];
