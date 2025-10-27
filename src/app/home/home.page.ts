@@ -12,6 +12,6 @@ export class HomePage {
   constructor(private route: Router){}
 
   goToPage(){
-    this.route.navigate(['/pet/contact']);
+    this.route.navigate(['/pet/info/68ebc8eba76de6658f5275b7']);
   }
 }
