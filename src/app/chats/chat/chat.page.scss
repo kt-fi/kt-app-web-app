@@ -1,0 +1,133 @@
+ion-icon {
+  font-size: 1.5rem;
+  color: #007aff;
+  margin: 0 2.5px;
+}
+
+
+
+ion-toolbar {
+
+  top: 0;
+  z-index: 10;
+  // height: 120px;;
+}
+
+
+
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  margin: 5px;
+  width: 60%;
+  border: 1px solid #e4e4e4;
+
+  &-container {
+    flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0; // Important for flexbox scrolling
+  
+  }
+
+  &_my-message {
+    background-color: #f4f7fa;
+    align-self: flex-end;
+    float: right;
+    border-radius: 18px 18px 4px 18px;
+    border: 1px solid #e4e4e4;
+  }
+
+  &_their-message {
+    background-color: #f4f7fa;
+    align-self: flex-start;
+    border-radius: 18px 18px 18px 4px;
+  }
+}
+
+.date-separator {
+  font-size: 0.8rem;
+  color: gray;
+  margin: 10px 0;
+  margin: 0 10px;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+ion-footer {
+  background-color: white;
+  border-top: none;
+  --box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.input-message {
+  width: 95%;
+  height: min-content;
+  background-color: white;
+  border-radius: 30px;
+  padding: 0 10px;
+  margin: 2.5%;
+  border: rgb(182, 182, 182) solid 1px;
+  --box-shadow: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 15px;
+  font-size: 1rem;
+  resize: vertical; /* or none, or both, as needed */
+  box-sizing: border-box; /* ensures 100% includes padding */
+  min-height: 40px; /* optional, for a minimum size */
+  line-height: 1.4; /* optional, for better readability */
+  background-color: transparent;
+}
+
+// .chat-content {
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .messages-container {
+//   flex: 1 1 auto;
+//   overflow-y: auto;
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 0;
+// }
+
+// ion-list {
+//   flex: 1 1 auto;
+//   overflow-y: auto;
+//   background: transparent;
+// }
+
+// .input-message {
+//   align-items: flex-end;
+// }
+// .input-textarea {
+//   width: 100%;
+//   resize: none;
+//   border: none;
+//   outline: none;
+//   font-size: 16px;
+//   background: transparent;
+//   padding: 8px 0;
+//   min-height: 36px;
+//   max-height: 80px;
+// }

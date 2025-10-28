@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    @if(petName) {
+    <ion-title>{{petName}}</ion-title>
+    }
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/messages"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- <app-header [title]='' [headerText]='chat![0].senderId' [hamburger]="false"></app-header> -->
+<ion-content [fullscreen]="true"> 
+  <div class="messages-container">
+    @if(isLoading) {
+      <div class="loader">
+        <ion-spinner name="crescent"></ion-spinner>
+      </div>
+    }
+    @else if(!chatMessages) {
+      <div class="no-messages">
+        No messages yet. Start the conversation!
+      </div>
+    }
+  <ion-list>
+  @for (message of chatMessages; track message!.timestamp; let last = $last) {
+  @if(last) {
+    <div [ngClass]="message!.senderId != user!.userId ? 'date-separator left' : 'date-separator right'">
+      {{ message!.timestamp | date: 'dd MMMM yyyy, HH:mm' }}
+    </div>
+  }
+  <div
+    [ngClass]="message!.senderId == user!.userId
+      ? 'messages messages_my-message'
+      : 'messages messages_their-message'"
+  >
+    {{ message!.message }}
+  </div>
+}
+  </ion-list>
+</div>
+</ion-content>
+<ion-footer>
+    <ion-item class="input-message">
+    <textarea class="input-textarea" rows="1" #messageInput></textarea>
+    <ion-buttons slot="end" >
+      <ion-button (click)="sendMessage(messageInput)">
+        <ion-icon name="send-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+     <ion-buttons slot="start">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-buttons>
+  </ion-item>
+</ion-footer>

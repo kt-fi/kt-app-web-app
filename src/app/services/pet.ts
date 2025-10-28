@@ -20,16 +20,13 @@ export class PetService {
   getPet(): Observable<Pet | null> {
     return this._pet.asObservable();
   }
-
-
-getPetById(petId: string) {
+  getPetById(petId: string) {
     return this.httpClient
-      .get<Pet | string>(`${this.url}/getPetById/${petId}`)
+      .get<any>(`${this.url}/getPetById/${petId}`)
       .pipe(
-        tap((data: any) => {
+        map((data: any) => {
           if (data) {
-            console.log(data)
-            this._pet.next(new Pet(
+            const pet = new Pet(
               data.userId,
               data._id,
               data.petName,
@@ -41,13 +38,17 @@ getPetById(petId: string) {
               data.locationLastSeen,
               data.spottedLocations,
               data.otherInfo
-            ));
+            );
+            this._pet.next(pet);
+            return pet;
+          } else {
+            this._pet.next(null);
+            return null;
           }
-          return this._pet.value;
         }),
         catchError((error) => {
           return throwError(() => new Error('Error fetching pet by ID'));
         })
       );
-    }
   }
+}

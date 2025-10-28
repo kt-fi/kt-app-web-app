@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{currentPet()!.petName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-item>
+      <ion-button color="primary" size="large" fill="solid" expand="block">
+        <ion-icon slot="start" name="call"></ion-icon>
+        Call
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button size="large" fill="solid" expand="block">
+        <ion-icon slot="start" name="chatbubbles"></ion-icon>
+        Chat
+      </ion-button>
+    </ion-item>
+
+</ion-content>

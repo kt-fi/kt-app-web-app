@@ -5,18 +5,19 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
-  {
-    path: 'pet/info/:petId',
-    loadComponent: () => import('./pet/pet-info/pet-info.component').then((m) => m.PetInfoComponent),
-  },
- {
-    path: 'pet/contact',
-    loadComponent: () => import('./pet/contact/contact.component').then((m) => m.ContactComponent),
-  },
+
 
     {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
+  },
+  {
+    path: 'pet/chat/:id',
+    loadComponent: () => import('./chats/chat/chat.page').then( m => m.ChatPage)
+  },
+  {
+    path: 'pet/contact/:id',
+    loadComponent: () => import('./pet/contact/contact.page').then( m => m.ContactPage)
   },
 ];
